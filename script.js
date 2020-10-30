@@ -1,0 +1,1 @@
+let haha = [object, object];
