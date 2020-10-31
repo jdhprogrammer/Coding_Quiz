@@ -1,3 +1,38 @@
+.clearfix {
+    overflow: auto;
+}
+
 body {
     background-color: grey;
+}
+
+header {
+    margin: 20px;
+    display: block;
+}
+
+a {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    width: 50%;
+    text-decoration: none;
+    float: left;
+    padding: 10px;
+}
+
+#timer {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    text-align: right;
+    width: 50%;
+    float: right;
+    padding: 10px;
+}
+
+main {
+    text-align: center;
+    /* margin-top: 10px;
+    display: block; */
 }
