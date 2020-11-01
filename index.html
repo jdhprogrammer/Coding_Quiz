@@ -15,20 +15,28 @@
 
 <body>
     <header>
-        <a href="highscores.html">View Highscores</a>
-        <span id="timer">Time: 00:00</span>
+        <a href="./highscores.html">View Highscores</a>
+        <div id="timer"><span>Time Remaining: </span><span id="countdown"></span></div>
     </header>
 
     <main>
         <div class="container">
             <div class="row">
-                <div class="col">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, iusto.</div>
+                <div class="col-12 col-lg-5 mx-auto p-3">
+                    <h1>Coding Quiz Challenge</h1>
+                </div>
             </div>
             <div class="row">
-                <div class="col">Tempora officia alias eveniet recusandae architecto voluptate quasi harum repellat!</div>
+                <div class="col col-12 col-lg-6 mx-auto p-3">
+                    <span>Try to answer the following code-related questions within the time limit. 
+                        Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+                    </span>
+                </div>
             </div>
             <div class="row">
-                <div class="col">Officiis cupiditate nam eveniet veritatis in esse consequatur minima velit!</div>
+                <div class="colcol col-12 col-lg-6 mx-auto p-3">
+                    <button class="btn btn-primary btn-lg" type="submit">Start Quiz</button>
+                </div>
             </div>
         </div>
     </main>

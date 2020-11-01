@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: grey;
+    background-color: lightgray;
 }
 
 header {
@@ -12,9 +12,10 @@ header {
 }
 
 a {
-    color: white;
+    color: black;
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
+    /* font-weight: 600; */
     width: 50%;
     text-decoration: none;
     float: left;
@@ -22,7 +23,7 @@ a {
 }
 
 #timer {
-    color: white;
+    color: black;
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
     text-align: right;
@@ -35,4 +36,25 @@ main {
     text-align: center;
     /* margin-top: 10px;
     display: block; */
+}
+
+.row {
+    /* border: 2px solid black; */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: white;
+}
+
+li {
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #ff5d88;
+    color: white;
+    font-size: 1.5em;
+    line-height: 1.5;
 }
