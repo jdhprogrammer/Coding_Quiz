@@ -1,10 +1,40 @@
-let count = 75,
+let startQuizBtn = document.querySelector("#startQuizBtn")
+
+startQuizBtn.addEventListener("click", quizTimer)
+
+function quizTimer() {
+    let introPage = document.querySelector("#introPage")
+    introPage.setAttribute("style", "display: none;")
+
+    let questionPage = document.querySelector("#questionPage")
+    questionPage.setAttribute("style", "display: inline-block;")
+
+
+    let count = 5;
+
     timer = setInterval(function() {
+
         $("#countdown").html(count--);
-        if (count == 1) clearInterval(timer);
+        if (count === -1) clearInterval(timer)
+
+        if (count === -1) {
+
+            let questionPage = document.querySelector("#questionPage");
+            questionPage.setAttribute("style", "display: none;");
+
+            let gameOverPage = document.querySelector("#gameOverPage");
+            gameOverPage.setAttribute("style", "display: block;");
+
+        }
+
     }, 1000);
 
-_________________________________________________________
+}
+
+let submitInitials = document.querySelector("#submitInitials");
+
+submitInitials.addEventListener("click", renderInitials);
+
 
 
 let initialInput = document.querySelector("#initial-text");
@@ -12,11 +42,13 @@ let initialForm = document.querySelector("#initial-form");
 let initialList = document.querySelector("#initial-list");
 let initialCountSpan = document.querySelector("#initial-count");
 
-let initials = ["Learn HTML", "Learn CSS", "Learn JavaScript"];
+let initials = ["ABC", "DEF", "GHI"];
 
-renderinitials();
 
-function renderinitials() {
+renderInitials();
+
+function renderInitials(event) {
+    event.preventDefault;
     // Clear initialList element and update initialCountSpan
     initialList.innerHTML = "";
     initialCountSpan.textContent = initials.length;

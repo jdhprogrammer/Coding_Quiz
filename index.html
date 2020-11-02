@@ -20,26 +20,81 @@
     </header>
 
     <main>
-        <div class="container">
+        <div class="container" id="introPage">
             <div class="row">
                 <div class="col-12 col-lg-5 mx-auto p-3">
                     <h1>Coding Quiz Challenge</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col col-12 col-lg-6 mx-auto p-3">
+                <div class="col-12 col-lg-6 mx-auto p-3">
                     <span>Try to answer the following code-related questions within the time limit. 
                         Keep in mind that incorrect answers will penalize your score/time by ten seconds!
                     </span>
                 </div>
             </div>
             <div class="row">
-                <div class="colcol col-12 col-lg-6 mx-auto p-3">
-                    <button class="btn btn-primary btn-lg" type="submit">Start Quiz</button>
+                <div class="col-12 col-lg-6 mx-auto p-3">
+                    <button class="btn btn-primary btn-lg" type="submit" id="startQuizBtn">Start Quiz</button>
                 </div>
             </div>
         </div>
+
+        <div class="container" id="questionPage">
+            <div class="row">
+                <div class="col-12 col-lg-6 mx-auto text-left p-3">
+                    <h3 id="question">A very useful tool used during development and debugging for printing content to the debugger is:</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6 mx-auto py-2">
+                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer1" type="submit">1. <span>JavaScript</span></button>
+                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer2" type="submit">2. <span>terminal / bash</span></button>
+                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer3" type="submit">3. <span>for loops</span></button>
+                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer4" type="submit">4. <span>console log</span></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6 mx-auto text-left py-1"></div>
+                <hr id="resultDivider">
+                <h3 id="result">Correct!</h3>
+            </div>
+        </div>
+        </div>
+
+        <div class="container" id="gameOverPage">
+            <div class="row">
+                <div class="col-12 col-lg-6 mx-auto p-3 text-left">
+                    <h3 id="gameOver">Game Over!</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6 mx-auto p-3 font-weight-bold text-left">
+                    <span>Your final score is </span><span id="finalScore"></span><span>.</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6 mx-auto p-3">
+                    <form class="form-inline" id="initial-form">
+                        <div class="mb-2 text-left" style="width: 90px">
+                            <label for="staticEnterInitials" class="sr-only">Enter Initials:</label>
+                            <input type="text" readonly class="form-control-plaintext" id="staticEnterInitials" id="initial-text" value="Enter Initials:">
+                        </div>
+
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="inputInitials" class="sr-only">Initials</label>
+                            <input type="text" class="form-control" id="inputInitials" placeholder="- - -">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </form>
+                    <p>Initial Count: <span id="initial-count">0</span></p>
+                    <ul id="initial-list"></ul>
+                </div>
+            </div>
+        </div>
+
     </main>
+
     <script src="script.js"></script>
 
     <!-- jQuery and JS bundle w/ Popper.js -->
