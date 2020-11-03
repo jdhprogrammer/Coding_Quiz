@@ -34,3 +34,5 @@ function renderHighScores() {
 }
 
 test test test
+
+test again
