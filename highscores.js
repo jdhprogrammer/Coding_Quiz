@@ -32,7 +32,3 @@ function renderHighScores() {
         userNameList.appendChild(newHighScore);
     }
 }
-
-test test test
-
-test again

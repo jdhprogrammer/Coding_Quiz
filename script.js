@@ -48,12 +48,28 @@ let quizTimerFinish = document.querySelector("#countdown").textContent;
 function codingQuiz() {
 
     introPage.setAttribute("style", "display: none;")
-
-
     questionPage.setAttribute("style", "display: inline-block;")
+    quizTimerCount = quizTimerStart;
+
+    let answerChoice = "";
+
+    $(".answer").on("click", function() {
+        answerChoice += this.value;
+
+        if (answerChoice === "power") {
+            $("#question").text("^")
+        } else if (answerChoice === "plus") {
+            $("#answer1").text("+")
+        } else if (answerChoice === "minus") {
+            $("#answer2").text("-")
+        } else if (answerChoice === "times") {
+            $("#answer3").text("*")
+        } else if (answerChoice === "divide") {
+            $("#answer4").text("/")
+        }
+    });
 
 
-    let quizTimerCount = 5;
 
     timer = setInterval(function() {
 
