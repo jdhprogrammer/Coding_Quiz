@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, userName-scale=1.0">
     <title>Document</title>
 
 
@@ -48,10 +48,10 @@
             </div>
             <div class="row">
                 <div class="col-12 col-lg-6 mx-auto py-2">
-                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer1" type="submit">1. <span>JavaScript</span></button>
-                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer2" type="submit">2. <span>terminal / bash</span></button>
-                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer3" type="submit">3. <span>for loops</span></button>
-                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer4" type="submit">4. <span>console log</span></button>
+                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer1" type="submit"><span>JavaScript</span></button>
+                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer2" type="submit"><span>terminal / bash</span></button>
+                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer3" type="submit"><span>for loops</span></button>
+                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer4" type="submit"><span>console log</span></button>
                 </div>
             </div>
             <div class="row">
@@ -75,20 +75,20 @@
             </div>
             <div class="row">
                 <div class="col-12 col-lg-6 mx-auto p-3">
-                    <form class="form-inline" id="initial-form">
+                    <form class="form-inline" id="userName-form">
                         <div class="mb-2 text-left" style="width: 90px">
-                            <label for="staticEnterInitials" class="sr-only">Enter Initials:</label>
-                            <input type="text" readonly class="form-control-plaintext" id="staticEnterInitials" id="initial-text" value="Enter Initials:">
+                            <label for="staticEnteruserNames" class="sr-only">Enter userNames:</label>
+                            <input type="text" readonly class="form-control-plaintext" id="staticEnteruserNames" value="Enter userNames:">
                         </div>
 
                         <div class="form-group mx-sm-3 mb-2">
-                            <label for="inputInitials" class="sr-only">Initials</label>
-                            <input type="text" class="form-control" id="inputInitials" placeholder="- - -">
+                            <label for="userName-text" class="sr-only">userNames</label>
+                            <input type="text" class="form-control" id="userName-text" placeholder="- - -">
                         </div>
-                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                        <button type="submit" class="btn btn-primary mb-2" id="userName-text">Submit</button>
                     </form>
-                    <p>Initial Count: <span id="initial-count">0</span></p>
-                    <ul id="initial-list"></ul>
+                    <p>userName Count: <span id="userName-count"></span></p>
+                    <ul id="userName-list"></ul>
                 </div>
             </div>
         </div>
