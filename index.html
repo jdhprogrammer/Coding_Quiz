@@ -77,8 +77,8 @@
                 <div class="col-12 col-lg-6 mx-auto p-3">
                     <form class="form-inline" id="userName-form">
                         <div class="mb-2 text-left" style="width: 90px">
-                            <label for="staticEnteruserNames" class="sr-only">Enter userNames:</label>
-                            <input type="text" readonly class="form-control-plaintext" id="staticEnteruserNames" value="Enter userNames:">
+                            <label for="staticEnteruserNames" class="sr-only">Enter initials:</label>
+                            <input type="text" readonly class="form-control-plaintext" id="staticEnteruserNames" value="Enter initials:">
                         </div>
 
                         <div class="form-group mx-sm-3 mb-2">
@@ -87,7 +87,12 @@
                         </div>
                         <button type="submit" class="btn btn-primary mb-2" id="userName-text">Submit</button>
                     </form>
-                    <p>userName Count: <span id="userName-count"></span></p>
+                    <div class="row">
+                        <div class="col-5">
+                            <p>User count: <span id="userName-count"></span></p>
+                        </div>
+                    </div>
+
                     <ul id="userName-list"></ul>
                 </div>
             </div>

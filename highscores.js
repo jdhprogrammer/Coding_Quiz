@@ -1,4 +1,4 @@
-let userNameList = document.querySelector("#highScoreslist");
+let userNameList = document.querySelector("#highScoresList");
 
 let highScores = [];
 
@@ -24,20 +24,13 @@ function renderHighScores() {
         // let newUser = highScores[i];
 
         let newHighScore = document.createElement("li");
-        let userNumber = i++;
+        let userNumber = i + 1;
         let userName = highScores[i].user;
         let userScore = highScores[i].score;
 
         newHighScore.textContent = userNumber + ". " + userName + " -- " + userScore;
-
+        userNameList.appendChild(newHighScore);
     }
-
-    let newUser = document.createElement("li");
-
-    let userNumber = userNames.length;
-    let lastUser = userNames[(userNames.length - 1)];
-    let userScore = finalScore.textContent;
-
-    newUser.textContent = userNumber + ". " + lastUser + " -- " + userScore;
-    userNameList.appendChild(newPlayer);
 }
+
+test test test
