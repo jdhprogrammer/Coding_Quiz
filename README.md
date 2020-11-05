@@ -3,6 +3,14 @@ High Scores Quiz Project
 
 # 04 Web APIs: Code Quiz
 
+#### Developer: David Harris
+email: jdh.programmer@gmail.com - 
+github: https://github.com/jdhprogrammer
+
+Project Repository: https://github.com/jdhprogrammer/Coding_Quiz
+
+Project Deployment: https://jdhprogrammer.github.io/Coding_Quiz/
+
 ## Your Task
 
 As you proceed in your journey to becoming a full-stack web developer, it’s likely that you’ll be asked to complete a coding assessment, perhaps as part of an interview process. A typical coding assessment is a combination of multiple-choice questions and interactive coding challenges. 
