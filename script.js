@@ -50,7 +50,7 @@ let listOfAnswers = [];
 let userNames = [];
 let highScores = [];
 
-let quizTimerStart = 75;
+let quizTimerCount = 75;
 let quizTimerFinish = document.querySelector("#countdown").textContent;
 
 function codingQuiz() {
@@ -63,13 +63,11 @@ function codingQuiz() {
     answer4.textContent = currentQuestion.answers[3];
     correctAnswer = currentQuestion.correctAnswerIndex;
 
-
-
 }
 
 $(".answer").click(function() {
     answerChoice = this.value;
-    listOfAnswers += answerChoice;
+    listOfAnswers.push(answerChoice);
     console.log(this.value);
     console.log(answerChoice);
     console.log(correctAnswer);
@@ -80,8 +78,8 @@ $(".answer").click(function() {
         resultDivider.setAttribute("style", "display: inline-block;")
     }
     if (answerChoice !== correctAnswer) {
-        // quizTimerCount = quizTimerCount - 10;
-        // console.log(quizTimerCount);
+        quizTimerCount -= 14;
+        $("#countdown").html('00:' + quizTimerCount);
         correct.setAttribute("style", "display: none;");
         wrong.setAttribute("style", "display: inline-block;");
     }
@@ -94,16 +92,15 @@ $(".answer").click(function() {
     }
 });
 
-
 function quizTimer() {
 
     introPage.setAttribute("style", "display: none;");
     questionPage.setAttribute("style", "display: inline-block;");
-    // quizTimerCount = quizTimerStart;
-    let quizTimerCount = quizTimerStart
-    timer = setInterval(function() {
 
-        $("#countdown").html(quizTimerCount--);
+    let timer = setInterval(function() {
+
+        quizTimerCount--;
+        $("#countdown").html('00:' + quizTimerCount);
         if (quizTimerCount === -1) clearInterval(timer)
 
         if (quizTimerCount === -1) {
@@ -122,7 +119,6 @@ function quizTimer() {
 
     }, 1000);
 
-
 };
 
 function storeHighscores() {
@@ -135,7 +131,6 @@ function storeHighscores() {
 startQuizBtn.addEventListener("click", codingQuiz);
 startQuizBtn.addEventListener("click", quizTimer);
 
-// When form is submitted...
 userNameForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -146,7 +141,6 @@ userNameForm.addEventListener("submit", function(event) {
     if (userNameText === "") {
         return;
     };
-
     // Add new userNameText to userNames array, clear the input
     userNames.push(userNameText);
     console.log(userNames);
@@ -170,7 +164,7 @@ userNameForm.addEventListener("submit", function(event) {
         userNameList.appendChild(newPlayer);
 
 
-        let newHighscore = { user: lastUser, score: userScore, stats: ". " + " " + this.user + " -- " + this.score }
+        let newHighscore = { user: lastUser, score: userScore }
         highScores.push(newHighscore);
 
         storeHighscores();
