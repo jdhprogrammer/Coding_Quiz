@@ -1,6 +1,7 @@
 let introPage = document.querySelector("#introPage");
 let questionPage = document.querySelector("#questionPage");
 let gameOverPage = document.querySelector("#gameOverPage");
+let resultDivider = document.querySelector("#resultDivider");
 
 let startQuizBtn = document.querySelector("#startQuizBtn");
 let finalScore = document.querySelector("#finalScore");
@@ -22,23 +23,23 @@ let answer4 = document.querySelector("#answer4");
 let questionArray = [{
     question: "A very useful tool used during development and debugging for printing content to the debugger is:",
     answers: ["1. JavaScript", "2. Terminal / Bash", "3. for loops", "4. console log"],
-    correctAnswerIndex: 3
+    correctAnswerIndex: "3"
 }, {
     question: "The condition in an if / esle statement is enclosed within _____.",
     answers: ["1. quotes", "2. curly brackets", "3. parentheses", "4. square brackets"],
-    correctAnswerIndex: 2
+    correctAnswerIndex: "2"
 }, {
     question: "Arrays in JavaScript can be used to store _____",
     answers: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
-    correctAnswerIndex: 3
+    correctAnswerIndex: "3"
 }, {
     question: "String values must be enclosed within _____ when being assigned to variables.",
     answers: ["1. quotes", "2. curly brackets", "3. commas", "4. parentheses"],
-    correctAnswerIndex: 0
+    correctAnswerIndex: "0"
 }, {
     question: "Commonly used data types DO NOT include:",
     answers: ["1. strings", "2. alerts", "3. booleans", "4. numbers"],
-    correctAnswerIndex: 1
+    correctAnswerIndex: "1"
 }]
 
 let i = 0;
@@ -55,18 +56,20 @@ let quizTimerFinish = document.querySelector("#countdown").textContent;
 function codingQuiz() {
 
     let currentQuestion = questionArray[i];
-    question.textContent = currentQuestion;
+    question.textContent = currentQuestion.question;
     answer1.textContent = currentQuestion.answers[0];
     answer2.textContent = currentQuestion.answers[1];
     answer3.textContent = currentQuestion.answers[2];
     answer4.textContent = currentQuestion.answers[3];
     correctAnswer = currentQuestion.correctAnswerIndex;
 
+
+
 }
 
 $(".answer").click(function() {
     answerChoice = this.value;
-
+    listOfAnswers += answerChoice;
     console.log(this.value);
     console.log(answerChoice);
     console.log(correctAnswer);
@@ -74,22 +77,29 @@ $(".answer").click(function() {
     if (answerChoice === correctAnswer) {
         correct.setAttribute("style", "display: inline-block;");
         wrong.setAttribute("style", "display: none;");
-    } else if (answerChoice !== correctAnswer) {
+        resultDivider.setAttribute("style", "display: inline-block;")
+    }
+    if (answerChoice !== correctAnswer) {
         // quizTimerCount = quizTimerCount - 10;
         // console.log(quizTimerCount);
         correct.setAttribute("style", "display: none;");
         wrong.setAttribute("style", "display: inline-block;");
     }
-
-    return i = i + 1, codingQuiz();
+    if (i === 4) {
+        questionPage.setAttribute("style", "display: none;");
+        gameOverPage.setAttribute("style", "display: block;");
+    }
+    if (i !== 4) {
+        return i = i + 1, codingQuiz();
+    }
 });
 
 
 function quizTimer() {
 
-    introPage.setAttribute("style", "display: none;")
-    questionPage.setAttribute("style", "display: inline-block;")
-        // quizTimerCount = quizTimerStart;
+    introPage.setAttribute("style", "display: none;");
+    questionPage.setAttribute("style", "display: inline-block;");
+    // quizTimerCount = quizTimerStart;
     let quizTimerCount = quizTimerStart
     timer = setInterval(function() {
 
@@ -102,10 +112,17 @@ function quizTimer() {
             gameOverPage.setAttribute("style", "display: block;");
         }
 
-        if (listOfAnswers.length === 5) clearInterval(timer)
+        if (listOfAnswers.length === 5) {
+            questionPage.setAttribute("style", "display: none;");
+            gameOverPage.setAttribute("style", "display: block;");
+            clearInterval(timer)
+            finalScore.textContent = quizTimerCount + 1;
+
+        }
+
     }, 1000);
-    finalQuizTime = quizTimerCount;
-    finalScore.textContent = finalQuizTime + 1;
+
+
 };
 
 function storeHighscores() {
@@ -152,10 +169,11 @@ userNameForm.addEventListener("submit", function(event) {
         newPlayer.textContent = userNumber + ". " + lastUser + " -- " + userScore;
         userNameList.appendChild(newPlayer);
 
+
         let newHighscore = { user: lastUser, score: userScore, stats: ". " + " " + this.user + " -- " + this.score }
         highScores.push(newHighscore);
 
         storeHighscores();
-
+        window.location.href = "./highscores.html";
     };
 });

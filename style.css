@@ -82,12 +82,12 @@ ul {
 }
 
 li {
-    height: 20px;
+    height: 40px;
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 5px;
     background-color: lightblue;
     color: black;
-    font-size: 1.5em;
+    font-size: 20px;
     line-height: 1.5;
 }
