@@ -54,9 +54,16 @@ main {
     display: none;
 }
 
-#result {
+.result {
     font-style: italic;
     font-weight: 300;
+}
+
+#correct {
+    display: none;
+}
+
+#wrong {
     display: none;
 }
 
@@ -75,16 +82,12 @@ ul {
 }
 
 li {
-    height: 50px;
+    height: 20px;
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 5px;
-    background-color: #ff5d88;
-    color: white;
+    background-color: lightblue;
+    color: black;
     font-size: 1.5em;
     line-height: 1.5;
-}
-
-.row {
-    /* border: 2px solid black; */
 }

@@ -8,14 +8,16 @@ let finalScore = document.querySelector("#finalScore");
 let userNameInput = document.querySelector("#userName-text");
 let userNameForm = document.querySelector("#userName-form");
 let submituserNames = document.querySelector("#submituserNames");
-let userNameCountSpan = parseInt(document.querySelector("#userName-count").textContent);
+let userNameCountSpan = document.querySelector("#userName-count");
 let userNameList = document.querySelector("#userName-list");
+let correct = document.querySelector("#correct");
+let wrong = document.querySelector("#wrong");
 
-let question = document.querySelector("#question").textContent;
-let answer1 = document.querySelector("#answer1").textContent;
-let answer2 = document.querySelector("#answer2").textContent;
-let answer3 = document.querySelector("#answer3").textContent;
-let answer4 = document.querySelector("#answer4").textContent;
+let question = document.querySelector("#question");
+let answer1 = document.querySelector("#answer1");
+let answer2 = document.querySelector("#answer2");
+let answer3 = document.querySelector("#answer3");
+let answer4 = document.querySelector("#answer4");
 
 let questionArray = [{
     question: "A very useful tool used during development and debugging for printing content to the debugger is:",
@@ -39,6 +41,11 @@ let questionArray = [{
     correctAnswerIndex: 1
 }]
 
+let i = 0;
+let answerChoice = "";
+let correctAnswer = "";
+
+let listOfAnswers = [];
 let userNames = [];
 let highScores = [];
 
@@ -47,30 +54,43 @@ let quizTimerFinish = document.querySelector("#countdown").textContent;
 
 function codingQuiz() {
 
+    let currentQuestion = questionArray[i];
+    question.textContent = currentQuestion;
+    answer1.textContent = currentQuestion.answers[0];
+    answer2.textContent = currentQuestion.answers[1];
+    answer3.textContent = currentQuestion.answers[2];
+    answer4.textContent = currentQuestion.answers[3];
+    correctAnswer = currentQuestion.correctAnswerIndex;
+
+}
+
+$(".answer").click(function() {
+    answerChoice = this.value;
+
+    console.log(this.value);
+    console.log(answerChoice);
+    console.log(correctAnswer);
+
+    if (answerChoice === correctAnswer) {
+        correct.setAttribute("style", "display: inline-block;");
+        wrong.setAttribute("style", "display: none;");
+    } else if (answerChoice !== correctAnswer) {
+        // quizTimerCount = quizTimerCount - 10;
+        // console.log(quizTimerCount);
+        correct.setAttribute("style", "display: none;");
+        wrong.setAttribute("style", "display: inline-block;");
+    }
+
+    return i = i + 1, codingQuiz();
+});
+
+
+function quizTimer() {
+
     introPage.setAttribute("style", "display: none;")
     questionPage.setAttribute("style", "display: inline-block;")
-    quizTimerCount = quizTimerStart;
-
-    let answerChoice = "";
-
-    $(".answer").on("click", function() {
-        answerChoice += this.value;
-
-        if (answerChoice === "power") {
-            $("#question").text("^")
-        } else if (answerChoice === "plus") {
-            $("#answer1").text("+")
-        } else if (answerChoice === "minus") {
-            $("#answer2").text("-")
-        } else if (answerChoice === "times") {
-            $("#answer3").text("*")
-        } else if (answerChoice === "divide") {
-            $("#answer4").text("/")
-        }
-    });
-
-
-
+        // quizTimerCount = quizTimerStart;
+    let quizTimerCount = quizTimerStart
     timer = setInterval(function() {
 
         $("#countdown").html(quizTimerCount--);
@@ -80,14 +100,13 @@ function codingQuiz() {
 
             questionPage.setAttribute("style", "display: none;");
             gameOverPage.setAttribute("style", "display: block;");
-
         }
-        finalScore.textContent = quizTimerCount + 1;
 
-
+        if (listOfAnswers.length === 5) clearInterval(timer)
     }, 1000);
-
-}
+    finalQuizTime = quizTimerCount;
+    finalScore.textContent = finalQuizTime + 1;
+};
 
 function storeHighscores() {
     // Sort highScores in Descending order - most time left is highest score
@@ -96,12 +115,13 @@ function storeHighscores() {
     localStorage.setItem("highScores", JSON.stringify(highScores));
 };
 
-startQuizBtn.addEventListener("click", codingQuiz)
+startQuizBtn.addEventListener("click", codingQuiz);
+startQuizBtn.addEventListener("click", quizTimer);
 
 // When form is submitted...
 userNameForm.addEventListener("submit", function(event) {
     event.preventDefault();
-    userNameCountSpan++;
+
     console.log(userNameCountSpan);
     let userNameText = userNameInput.value.trim().toUpperCase();
     let userNames = [];
@@ -127,6 +147,7 @@ userNameForm.addEventListener("submit", function(event) {
         let userNumber = userNames.length;
         let lastUser = userNames[(userNames.length - 1)];
         let userScore = finalScore.textContent;
+        userNameCountSpan.textContent = userNames.length;
 
         newPlayer.textContent = userNumber + ". " + lastUser + " -- " + userScore;
         userNameList.appendChild(newPlayer);
@@ -136,5 +157,5 @@ userNameForm.addEventListener("submit", function(event) {
 
         storeHighscores();
 
-    }
+    };
 });

@@ -43,21 +43,23 @@
         <div class="container" id="questionPage">
             <div class="row">
                 <div class="col-12 col-lg-6 mx-auto text-left p-3">
-                    <h3 id="question">A very useful tool used during development and debugging for printing content to the debugger is:</h3>
+                    <h3 id="question"></h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-lg-6 mx-auto py-2">
-                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer1" type="submit"><span>JavaScript</span></button>
-                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer2" type="submit"><span>terminal / bash</span></button>
-                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer3" type="submit"><span>for loops</span></button>
-                    <button class="btn btn-primary btn-lg d-block mb-1" style="width: fit-content;" id="answer4" type="submit"><span>console log</span></button>
+                    <button class="btn btn-primary btn-lg answer d-block mb-1" style="width: fit-content;" value="0" type="submit"><span id="answer1"></span></button>
+                    <button class="btn btn-primary btn-lg answer d-block mb-1" style="width: fit-content;" value="1" type="submit"><span id="answer2"></span></button>
+                    <button class="btn btn-primary btn-lg answer d-block mb-1" style="width: fit-content;" value="2" type="submit"><span id="answer3"></span></button>
+                    <button class="btn btn-primary btn-lg answer d-block mb-1" style="width: fit-content;" value="3" type="submit"><span id="answer4"></span></button>
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-lg-6 mx-auto text-left py-1"></div>
-                <hr id="resultDivider">
-                <h3 id="result">Correct!</h3>
+                <div class="col-12 col-lg-6 mx-auto text-left py-1">
+                    <hr id="resultDivider">
+                    <h3 class="result" id="correct">Correct!</h3>
+                    <h3 class="result" id="wrong">Wrong!</h3>
+                </div>
             </div>
         </div>
         </div>
@@ -89,7 +91,7 @@
                     </form>
                     <div class="row">
                         <div class="col-5">
-                            <p>User count: <span id="userName-count"></span></p>
+                            <p>User Count: <span id="userName-count">0</span></p>
                         </div>
                     </div>
 
@@ -99,12 +101,12 @@
         </div>
 
     </main>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 
     <!-- jQuery and JS bundle w/ Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
 
 </body>
 
