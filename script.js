@@ -42,6 +42,7 @@ let questionArray = [{
     correctAnswerIndex: "1"
 }]
 
+
 let i = 0;
 let answerChoice = "";
 let correctAnswer = "";
@@ -50,10 +51,27 @@ let listOfAnswers = [];
 let userNames = [];
 let highScores = [];
 
+
 let quizTimerCount = 75;
 let quizTimerFinish = document.querySelector("#countdown").textContent;
 
+init();
+
+function init() {
+    // Get stored highScores from localStorage
+    // Parsing the JSON string to an object
+    var storedHighScores = JSON.parse(localStorage.getItem("highScores"));
+
+    // If todos were retrieved from localStorage, update the todos array to it
+    if (storedHighScores !== null) {
+        highScores = storedHighScores.sort((a, b) => b - a);
+    }
+
+}
+
 function codingQuiz() {
+
+
 
     let currentQuestion = questionArray[i];
     question.textContent = currentQuestion.question;
@@ -63,25 +81,30 @@ function codingQuiz() {
     answer4.textContent = currentQuestion.answers[3];
     correctAnswer = currentQuestion.correctAnswerIndex;
 
+    // trying to remove active state of bootstrap buttons
+    // $(".answer").attr("outline: none");
 }
 
 $(".answer").click(function() {
     answerChoice = this.value;
     listOfAnswers.push(answerChoice);
-    console.log(this.value);
-    console.log(answerChoice);
-    console.log(correctAnswer);
+
+    console.log(answerChoice, correctAnswer);
+
 
     if (answerChoice === correctAnswer) {
         correct.setAttribute("style", "display: inline-block;");
         wrong.setAttribute("style", "display: none;");
         resultDivider.setAttribute("style", "display: inline-block;")
+        console.log("Correct")
     }
     if (answerChoice !== correctAnswer) {
         quizTimerCount -= 14;
         $("#countdown").html('00:' + quizTimerCount);
+        console.log("-10 Seconds!")
         correct.setAttribute("style", "display: none;");
         wrong.setAttribute("style", "display: inline-block;");
+        console.log("Wrong")
     }
     if (i === 4) {
         questionPage.setAttribute("style", "display: none;");
@@ -113,7 +136,7 @@ function quizTimer() {
             questionPage.setAttribute("style", "display: none;");
             gameOverPage.setAttribute("style", "display: block;");
             clearInterval(timer)
-            finalScore.textContent = quizTimerCount + 1;
+            finalScore.textContent = quizTimerCount;
 
         }
 
@@ -123,8 +146,14 @@ function quizTimer() {
 
 function storeHighscores() {
     // Sort highScores in Descending order - most time left is highest score
-    highScores.sort((a, b) => b - a);
-    // Stringify and set "highScores" key in localStorage to highScores array
+    highScores.sort((a, b) => {
+            if (a.score < b.score) {
+                return 1
+            } else {
+                return -1
+            }
+        })
+        // Stringify and set "highScores" key in localStorage to highScores array
     localStorage.setItem("highScores", JSON.stringify(highScores));
 };
 
@@ -154,15 +183,9 @@ userNameForm.addEventListener("submit", function(event) {
         userNameList.textContent = "";
         // userNameCountSpan.textContent = userNames.length;
 
-        let newPlayer = document.createElement("li");
-        let userNumber = userNames.length;
         let lastUser = userNames[(userNames.length - 1)];
-        let userScore = finalScore.textContent;
+        let userScore = parseInt(finalScore.textContent);
         userNameCountSpan.textContent = userNames.length;
-
-        newPlayer.textContent = userNumber + ". " + lastUser + " -- " + userScore;
-        userNameList.appendChild(newPlayer);
-
 
         let newHighscore = { user: lastUser, score: userScore }
         highScores.push(newHighscore);

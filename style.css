@@ -50,6 +50,10 @@ main {
     display: none;
 }
 
+#highScoresList {
+    background-color: lightgray;
+}
+
 #resultDivider {
     display: none;
 }
@@ -86,8 +90,21 @@ li {
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 5px;
-    background-color: lightblue;
+    background-color: rgb(35, 235, 231);
     color: black;
     font-size: 20px;
     line-height: 1.5;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.answer:focus {
+    outline: none;
+    /* -webkit-focus-ring-color auto 1px; */
+}
+
+.answer:active {
+    outline: none;
 }
