@@ -59,7 +59,7 @@ THEN I can save my initials and score
 
 ## Screenshots
 
-![Screenshot of Code](Assets/Screenshots/Quiz_running--Timer_counting--correct_answer-note.jpeg?raw=true "Code")
-![Screenshot of Code](Assets/Screenshots/Subtract_time_for_wrong_answers.jpeg?raw=true "Code")
-![Screenshot of Code](Assets/Screenshots/Scores_Sorted_HightoLow--LocalStorage.jpeg?raw=true "Code")
-![Screenshot of Code](Assets/Screenshots/Cleared_local_Storage.jpeg?raw=true "Code")
+![Screenshot of  Quiz Features](Assets/Screenshots/Quiz_running--Timer_counting--correct_answer-note.jpeg?raw=true "Quiz Questions and Timer")
+![Screenshot of Wrong Answer](Assets/Screenshots/Subtract_time_for_wrong_answers.jpeg?raw=true "Wrong Answer on Quiz")
+![Screenshot of High Scores stored and Sorted](Assets/Screenshots/Scores_Sorted_HightoLow--LocalStorage.jpeg?raw=true "List of High Scores and Saving to Local Storage")
+![Screenshot of clearing Local Storage](Assets/Screenshots/Cleared_local_Storage.jpeg?raw=true "Clearing Local Storage")
