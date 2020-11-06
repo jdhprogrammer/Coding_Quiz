@@ -71,8 +71,6 @@ function init() {
 
 function codingQuiz() {
 
-
-
     let currentQuestion = questionArray[i];
     question.textContent = currentQuestion.question;
     answer1.textContent = currentQuestion.answers[0];
@@ -89,22 +87,22 @@ $(".answer").click(function() {
     answerChoice = this.value;
     listOfAnswers.push(answerChoice);
 
-    console.log(answerChoice, correctAnswer);
+    // console.log(answerChoice, correctAnswer);
 
 
     if (answerChoice === correctAnswer) {
         correct.setAttribute("style", "display: inline-block;");
         wrong.setAttribute("style", "display: none;");
         resultDivider.setAttribute("style", "display: inline-block;")
-        console.log("Correct")
+            // console.log("Correct")
     }
     if (answerChoice !== correctAnswer) {
         quizTimerCount -= 14;
         $("#countdown").html('00:' + quizTimerCount);
-        console.log("-10 Seconds!")
+        // console.log("-10 Seconds!")
         correct.setAttribute("style", "display: none;");
         wrong.setAttribute("style", "display: inline-block;");
-        console.log("Wrong")
+        // console.log("Wrong")
     }
     if (i === 4) {
         questionPage.setAttribute("style", "display: none;");
@@ -163,7 +161,7 @@ startQuizBtn.addEventListener("click", quizTimer);
 userNameForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    console.log(userNameCountSpan);
+    // console.log(userNameCountSpan);
     let userNameText = userNameInput.value.trim().toUpperCase();
     let userNames = [];
     // Return from function early if submitted userNameText is blank
@@ -172,7 +170,7 @@ userNameForm.addEventListener("submit", function(event) {
     };
     // Add new userNameText to userNames array, clear the input
     userNames.push(userNameText);
-    console.log(userNames);
+    // console.log(userNames);
     userNameInput.value = "";
 
     generateNewHighScore();
